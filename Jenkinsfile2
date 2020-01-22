@@ -1,10 +1,11 @@
 pipeline {
-    node {lable: "docker"}
-    
+agent{
+    node {label: "docker"}
+  }  
     stages {
         stage('Test') {
             steps {
-             withDockerContainer(node:7-alpine) {
+             withDockerContainer("node:7-alpine") {
                 sh 'node --version'
              }
             }
